@@ -30,7 +30,9 @@ public class OutputFormatting {
                 String s1=sc.next();
                 int x=sc.nextInt();
                 //Complete this line
+                System.out.println(x + s1);
             }
+            sc.close();
             System.out.println("================================");
 
     }
