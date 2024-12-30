@@ -2,7 +2,6 @@ package linkedLists;
 
 public class SLL {
     
-
     // attributes of ll
     private int size;
     private Node head;
@@ -13,10 +12,8 @@ public class SLL {
         this.size = 0;
     }
 
-
     // defining Node class
     private class Node {
-
         private int value;
         private Node next;
 
@@ -24,17 +21,11 @@ public class SLL {
         public Node(int value){
             this.value = value;
         }
-
         public Node(int value, Node next){
             this.value = value;
             this.next = next;
         }
-
-        
-
     }
-
-
 
     //function to insert node at first position and set it to head
     public void insertAtFirst(int val){
@@ -44,19 +35,13 @@ public class SLL {
         node.next = head;
         //making the current node the head node
         head = node;
-
-
         if (tail == null) {
             //if tail node is null -> first node was just created and hence set tail also to current node
             tail = head;
         }
-
-        //increase size of LL object by 1;
         size++;
         return;
     }
-
-
 
     //function to insert node at tail and update the tail to new node;
     public void insertAtLast(int val){
@@ -70,7 +55,6 @@ public class SLL {
             return;
         }
 
-
         Node node = new Node(val);
         //making current tail point to new node and then update tail to current node;
         tail.next = node;
@@ -79,13 +63,9 @@ public class SLL {
         return;
     }
 
-
-
-
-
     //function to insert new node at an arbitrary index
     public void insertNodeAtIndex(int val, int index){
-
+        //checks if index is between 0 and the size of list;
         if (index >=0 && index <= size ){
 
             if (index == 0) {
@@ -97,15 +77,20 @@ public class SLL {
                 return;
 
             } else{
-                Node node = head;
 
+                Node node = head;
                 //take care to put an index-- to make sure that the node is inserted at the correct index
                 //if i want it at the 3rd position, then i need to do a node.next 2 times
                 //this is because the index which the user has given (3), corresponds to the index 2 of the LL as it  starts from 0;
-                for (int i = 0; i < index-1; i++){
+                index--;
+                for (int i = 0; i < index; i++){
                     node = node.next;
+                    //stops at one node before insertion
                 }
+                //create new temporary node with required input value and make it point to the current nodes next address;
                 Node temp = new Node(val, node.next);
+
+                //setting the current node's next pointer to the newly created temporary node;
                 node.next = temp;
                 
                 size++;
@@ -141,8 +126,4 @@ public class SLL {
         System.out.println(temp);
         //System.out.println("End-of-LL");
     }
-
-
-    
-
 }
