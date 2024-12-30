@@ -21,10 +21,6 @@ public class SLL {
         private Node next;
 
         //constructors for Node class
-        public Node(){
-
-        }
-
         public Node(int value){
             this.value = value;
         }
@@ -101,17 +97,18 @@ public class SLL {
                 return;
 
             } else{
-                Node temp = new Node(val);
-                Node node = new Node();
-                node = head;
+                Node node = head;
+
                 //take care to put an index-- to make sure that the node is inserted at the correct index
                 //if i want it at the 3rd position, then i need to do a node.next 2 times
                 //this is because the index which the user has given (3), corresponds to the index 2 of the LL as it  starts from 0;
                 for (int i = 0; i < index-1; i++){
                     node = node.next;
                 }
-                temp.next = node.next;
+                Node temp = new Node(val, node.next);
                 node.next = temp;
+                
+                size++;
                 return;
             }
             

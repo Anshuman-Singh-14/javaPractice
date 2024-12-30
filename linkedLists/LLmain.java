@@ -4,11 +4,11 @@ public class LLmain {
     
     public static void main(String[] args) {
 
-        
+        SLLExample();
         return;
     }
 
-    public void SLLExample(){
+    public static void SLLExample(){
         
         SLL lxd = new SLL();
         lxd.insertAtFirst(7);
