@@ -108,6 +108,44 @@ public class SLL {
 
 
 
+    //function to delete the first node of the LL
+    public int deleteFirst(){
+        int val = head.value;
+        head = head.next;
+        if (head == null) {
+            tail = null;
+        }
+        size--;
+        return val;
+    }
+
+
+    //function to delete the tail node
+    public int deleteLast(){
+        
+        if (size <= 1){
+            return deleteFirst();
+        }
+
+
+        Node secondLast = getIndex(size-2);
+        int val = tail.value;
+        tail = secondLast;
+        tail.next = null;
+        size--;
+        
+        return val;
+    }
+
+    //function to get a node pointer to the required node at the input index
+    public Node getIndex(int index) {
+        Node node = head;
+        for (int i = 0; i < index; i++){
+            node = node.next;
+        }
+        return node;
+    }
+
     //function to print the values of the linked list;
     public void displayList(){
         
